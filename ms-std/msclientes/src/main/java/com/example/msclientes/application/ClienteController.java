@@ -26,8 +26,8 @@ public class ClienteController {
     }
 
     @PostMapping
-    public ResponseEntity<Cliente> save(@RequestBody Cliente cliente) {
-        Cliente clienteSalvo = clienteService.save(cliente);
+    public ResponseEntity<Cliente> save(@RequestBody Cliente request) {
+        Cliente clienteSalvo = clienteService.save(request);
         URI headerlocation = ServletUriComponentsBuilder.fromCurrentRequest()
                 .query("cpf={cpf}").buildAndExpand(clienteSalvo.getCpf()).toUri();
         return ResponseEntity.created(headerlocation).body(clienteSalvo);
