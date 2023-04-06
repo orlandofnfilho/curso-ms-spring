@@ -7,11 +7,12 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class CartaoCliente {
+@AllArgsConstructor
+public class DadosSolicitacaoEmissaoCartao {
 
-    private String nome;
-    private String bandeira;
+    private Long idCartao;
+    private String cpf;
+    private String endereco;
     private BigDecimal limiteLiberado;
 }

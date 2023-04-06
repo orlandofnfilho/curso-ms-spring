@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @RestController
@@ -39,8 +40,12 @@ public class CartaoController {
     }
 
     @GetMapping("cpf")
-    public ResponseEntity<List<ClienteCartao>> getCartoesByCpf(@RequestParam String cpf){
-        List<ClienteCartao> cartoesDisponiveis = clienteCartaoService.listCartoesByCpf(cpf);
-        return ResponseEntity.ok().body(cartoesDisponiveis);
+    public ResponseEntity<List<CartoesPorClienteResponse>> getCartoesByCliente(
+            @RequestParam("cpf") String cpf){
+        List<ClienteCartao> lista = clienteCartaoService.listCartoesByCpf(cpf);
+        List<CartoesPorClienteResponse> resultList = lista.stream()
+                .map(CartoesPorClienteResponse::fromModel)
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(resultList);
     }
 }

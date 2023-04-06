@@ -4,14 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CartaoCliente {
+public class ProtocoloSolicitacaoCartao {
 
-    private String nome;
-    private String bandeira;
-    private BigDecimal limiteLiberado;
+    private String protocolo;
+
 }

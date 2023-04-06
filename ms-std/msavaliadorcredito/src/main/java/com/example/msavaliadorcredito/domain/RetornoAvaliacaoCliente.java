@@ -13,5 +13,5 @@ import java.util.List;
 @Builder
 public class RetornoAvaliacaoCliente {
 
-    private List<CartaoAprovado> cartoesAprovados;
+    private List<CartaoAprovado> cartoes;
 }
